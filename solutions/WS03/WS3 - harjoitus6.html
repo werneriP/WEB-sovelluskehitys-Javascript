@@ -1,0 +1,89 @@
+<HTML lang="fi">
+
+<body>
+
+
+
+    <style>
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            color: #333333;
+        }
+
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid gray;
+            width: 50%;
+        }
+    </style>
+
+    <h1>Workshop 3: JavaScript Events</h1>
+    <hr />
+    <p>In this exercise we will practice the use of BOM and the JavaScript events. Use the lecture-material as a
+        reference guide side by side these exercises. It might also be a good idea to save the lines of code you write
+        during the exercises for later use.</p>
+
+
+
+    <H2>Exercise 6</h2>
+    <button onclick="missaOllaan()">Get location</button>
+    <button onclick="taallaOllaan()">Show location</button>
+    <p><br></p>
+    <p id="demo"></p>
+    <div id="mapholder"></div>
+    <p><br></p>
+    <li>The first button should check <a href="https://www.w3schools.com/html/html5_geolocation.asp">Geolocation</a> of
+        the user, and output it to the console and to the
+        page. Note: Some browsers might not allow you to do this. Try different browsers if you get errors.</li>
+    <li>
+        The second button should show your location on a Google Maps. You can see the map with a spesific location using
+        the URL "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false"
+        where
+        latlon is your latitude + longitute data separated by
+        comma (,).
+    </li>
+
+    <script>
+
+
+        var x = document.getElementById("demo");
+        function missaOllaan() {
+            //console.log("missäOllaan");
+            //x.innerHTML = "missäOllaan";
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude +
+                "<br>Accuracy: " + position.coords.accuracy + " metriä"
+        }
+
+        function taallaOllaan() {
+            /*if (navigator.geolocation) {
+                 navigator.geolocation.getCurrentPosition(showPosition);
+             } else {*/
+            x.innerHTML = "GoogleMaps geolocation is not supported by this browser.";
+            /*}
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+            var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+            document.getElementById("demo").innerHTML = img_url;
+            //document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";*/
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<HTML>
+<style>
+  body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #333333;
+  }
+
+  div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  table,
+  tr,
+  td {
+    border: 1px solid gray;
+    width: 50%;
+  }
+</style>
+<script>
+
+  //< !--JavaScript goes here-- >
+  function hiiriPaalla() {
+
+    console.log("Hiiri otsikon päällä");
+  }
+
+  function hiiriPoisPaalta() {
+
+    alert("Hiiri karkas");
+  }
+</script>
+
+<h1>Workshop 3: JavaScript Events</h1>
+<hr />
+<p>In this exercise we will practice the use of BOM and the JavaScript events. Use the lecture-material as a reference
+  guide side by side these exercises. It might also be a
+  good idea to save the lines of code you write during the exercises for later use.</p>
+
+<h2 onmouseover=hiiriPaalla() onmouseout=hiiriPoisPaalta()>Exercise 2</h2>
+
+<ul>
+  <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the
+    users mouse is moved
+    over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
+  <li>Add another event, which will fire then the mouse leaves the Exercise 2 -heading. This time show an alert window
+    to the user saying: "Bye bye mouse!"</li>
+</ul>
+
+</html>

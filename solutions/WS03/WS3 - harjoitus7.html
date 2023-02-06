@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+    <p id="demo">Click the button to get your position.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <div id='map' style='width: 500px; height: 400px;'></div>
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamtvdmFsYWkiLCJhIjoiY2t6bzRicmVuMzNpeTJvbzBqeWt5dHp2cyJ9.FrQwVCkL1boX_5_DozRE0Q';
+    </script>
+
+    <script>
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            console.log(lon, lat);
+
+
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [lon, lat],
+                zoom: 9
+            });
+
+            const marker1 = new mapboxgl.Marker()
+                .setLngLat([lon, lat])
+                .addTo(map);
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

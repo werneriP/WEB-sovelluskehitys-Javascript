@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+    <p id="demo">Click the button to get your position.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <div id='map' style='width: 5000px; height: 1000px;'></div>
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamtvdmFsYWkiLCJhIjoiY2t6bzRicmVuMzNpeTJvbzBqeWt5dHp2cyJ9.FrQwVCkL1boX_5_DozRE0Q';
+    </script>
+    <!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyBTGWUXy6k_3Q9ONkOEJ5_i423KzHFvM7I"></script>
+
+    To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+    <script>
+        var x = document.getElementById("mapholder");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            //var latlon = new google.maps.LatLng(lat, lon)
+            var mapholder = document.getElementById('map')
+            mapholder.style.height = '500px';
+            mapholder.style.width = '1000px';
+
+            < !--
+            var myOptions = {
+                center: latlon, zoom: 14,
+                mapTypeId: google.maps.MapTypeId.PROPERTY,
+
+                mapTypeControl: false,
+                navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL }
+            }-- >
+
+            var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+
+            var marker = new google.maps.Marker({ position: latlon, map: map, title: "You are here!" });
+
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11'
+            });
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
