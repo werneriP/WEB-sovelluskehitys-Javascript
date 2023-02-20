@@ -1,37 +1,17 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Workshop 1</title>
-    <!-- script tag is where Javascript goes to -->
-    <script>
-        for (var i = 0; i < 400; i++) {
-            console.log("This round is " + i);
-        }
-        // alert("hellurei");
-        // document.write("Sinä käytät " + navigator.appName + " selainta <br>");
+    <title>To-Do List</title>
 
-        // document.write("Näytön leveys " + window.screen.width + " ja näytön korkeus " + window.screen.height + " <br>");
-    </script>
 </head>
 
 <body>
-    <h1>Welcome to example page</h1>
-    <p> Lorem ipsum dolorem... </p>
-    <button onclick="alert('click')">Klikkaa minua</button> <br>
-
-    <button id="myBtn">Lisää tapahtumakäsittelijä vasta kun nappia painetaan</button>
-
-    <p id="demo"></p>
-
-    <script>
-        const element = document.getElementById("myBtn");
-        element.addEventListener("click", function () {
-            document.getElementById("demo").innerHTML = "Hello World";
-        });
-    </script>
-
+    <h1>To-Do List</h1>
+    <input type="text" id="inputTask" placeholder="Add a new task">
+    <button id="nappi">Add</button>
+    <ul id="taskList"></ul>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

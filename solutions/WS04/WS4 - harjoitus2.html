@@ -1,0 +1,91 @@
+<HTML>
+<style>
+    body {
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        color: #333333;
+    }
+
+    div {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+    }
+
+    table,
+    tr,
+    td {
+        border: 1px solid gray;
+        width: 50%;
+    }
+
+    img {
+        position: relative;
+        left: 0px;
+        opacity: 1;
+    }
+</style>
+<script>
+
+    //<!-- JavaScript goes here -->
+    function hide() {
+        var tyyli = document.getElementById('data').style.display;
+        if (tyyli == "none") {
+            document.getElementById('data').style = "display: block";
+        } else {
+            document.getElementById('data').style = "display: none";
+        }
+
+    }
+
+    function show() {
+        document.getElementById('data').style = "display: block";
+    }
+
+    function surprise() {
+        var elem = document.getElementsByClassName('surprise');
+        if (elem[0].style.backgroundColor == "blue") {
+            elem[0].style.backgroundColor = "white";
+            elem[0].style.fontSize = "16";
+        } else {
+
+            elem[0].style.backgroundColor = "blue";
+            elem[0].style.fontSize = "60";
+        }
+
+    }
+
+</script>
+
+<h1>Workshop 4: DOM Scripting</h1>
+<hr />
+<p>In this exercise we will practice the art of DOM Scripting with JavaScript. Use the lecture-material as a reference
+    guide side by side these exercises. It might also be a good idea to save the lines of code you write during the
+    exercises for later use. </p>
+
+
+
+<h2>Exercise 2: DOM Traversing using ID's and classes</h2>
+<p class="surprise">Add onchange -events to following checkboxes.</p>
+<p>
+    <label>
+        <input onchange="hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
+        Hide me </label>
+    <br>
+    <label>
+        <input onchange="show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
+        Show me</label>
+    <br>
+    <label>
+        <input onchange="surprise()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2">
+        <span id="surpise">Surprise</span>
+    </label>
+</p>
+<ul id="data">
+    <li>First checkbox: Find out which element has been described with the id &quot;data&quot;. Change the visibility
+        (display value) of the element to none. What happens?</li>
+    <li>Second checkbox should return the visibility of the element to a normal state (block).</li>
+    <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
+</ul>
+<p>&nbsp;</p>
+
+</html>
