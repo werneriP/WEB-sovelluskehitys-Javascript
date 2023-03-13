@@ -2,7 +2,6 @@
 // This script calculates an order total.
 
 function calculate() {
-    'use strict';
     // For storing the order total:
     var total = 0;
     var spessu = 0;

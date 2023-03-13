@@ -10,12 +10,11 @@ function calculate() {
     var total;
 
     // Get references to the form values:
-    var quantity = document.getElementById('quantity').value ;
-
-    var price =  document.getElementById('price').value ;
-    var tax =  document.getElementById('tax').value ;
-    var discount =  document.getElementById('discount').value ;
-	var shipping = document.getElementById('shipping').value;
+    var quantity = document.getElementById('quantity').value;
+    var price = document.getElementById('price').value;
+    var tax = document.getElementById('tax').value;
+    var discount = document.getElementById('discount').value;
+    var shipping = document.getElementById('shipping').value;
 
     // Add validation here later!
 
@@ -32,13 +31,13 @@ function calculate() {
     console.log("total after tax: " + total);
 
     // Factor in the discount:
-	if (quantity > 100){
-		total = total - (2*discount);
-	} else {
-		
-		total = total - discount;
-	}
-	total = total + (1.0*shipping);
+    if (quantity > 100) {
+        total = total - (2 * discount);
+    } else {
+
+        total = total - discount;
+    }
+    total = total + (1.0 * shipping);
     console.log("total after discount: " + total);
 
     // Format the total to two decimal places:
@@ -59,9 +58,9 @@ function init() {
 
     // Add an event listener to the form:
     var theForm = document.getElementById('theForm');
-	/* if(theForm.addEventListener){
-		theForm.addEventListener("submit", code ,false);
-	} */
+    /* if(theForm.addEventListener){
+        theForm.addEventListener("submit", code ,false);
+    } */
 
 } // End of init() function.
 
