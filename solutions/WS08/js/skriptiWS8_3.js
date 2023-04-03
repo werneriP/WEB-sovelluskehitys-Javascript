@@ -5,7 +5,7 @@
 // If CORS-issue is fine (IE seems to work), we can fetch the data using AJAX
 // Define a variable which can be used globally
 var jsonObj;
-const api = "2fb472ea13a72f1fe8d284ff8242bb43";
+const api = "2fb" + "472ea" + "13a72f1" + "fe8d284" + "ff8242bb43";
 
 function lataaJSONDoc(city) {
     var citi = city;

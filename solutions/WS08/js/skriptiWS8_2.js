@@ -294,18 +294,16 @@
 // If CORS-issue is fine (IE seems to work), we can fetch the data using AJAX
 // Define a variable which can be used globally */
 var jsonObj;
-/* var uri = "http://api.weatherapi.com/v1/current.json?key=dbc888dea077484098080905230304&q=Espoo&aqi=no"; */
 var uri = "https://dummyjson.com/products";
 
 function loadJSONDoc() {
 
-    /*    var url = "http://iceberg-cycle.codio.io/Project%202:%20Weather%20App/sampledata.js"; */
     var xmlhttp = new XMLHttpRequest();
 
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("rawdata").innerHTML = xmlhttp.responseText;
+
             // Receive the response as JSON and parse it into a JS variable
             jsonObj = JSON.parse(xmlhttp.responseText);
             // We can now use it as any JS variable
@@ -320,7 +318,7 @@ function loadJSONDoc() {
 
 function loadJSONDocWithParse() {
 
-    /*     var url = "http://iceberg-cycle.codio.io/Project%202:%20Weather%20App/sampledata.js"; */
+
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -328,7 +326,6 @@ function loadJSONDocWithParse() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //	document.getElementById("content").innerHTML = xmlhttp.responseText;
             jsonObj = JSON.parse(xmlhttp.responseText);
-
             console.log(jsonObj);
             // Call for a function which will parse the data to a table
             printJSONTable(jsonObj);
