@@ -1,1 +1,0 @@
-Työpajaharjoitusten skriptit
