@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="css/styles.css">
         <script>
             <!-- JavaScript goes here -->
+          
+    
         </script>
     </head>
     <body class="ws3">
@@ -16,16 +18,19 @@
         <h2>Exercise 1</h2>
         <p>Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
         <p>
-          <button>Click me</button>
+          <button onclick ="alert('You clicked me! Tänään on: '+ Date())">Click me</button>
           <button>Show table</button>
-          <button>Geolocation</button>
+          <button>Geolocation</button> 
         </p>
+
+    
 
         <ol>
           <li>The first button should open an alert-button, which will say "You clicked me!" </li>
           <li> When you see the button working, add the current date after the text by using the Date() -function.</li>
           <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Use document.write to print data. Feel free to modify the data on the table.</li>
         </ol>
+
         <table id="example" class="display">
             <thead>
                 <tr>
